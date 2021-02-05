@@ -1,14 +1,17 @@
 import { ADD_COMMENT } from "../actionTypes";
 
-const initialState = [];
+const initialState = {
+    loadingData: null
+};
 
 const addComments = (state = initialState, action) => {
+    //const [id, content] = state;
     switch(action.type){
         case ADD_COMMENT:
-            const { id, content } = action.payload;
+            const { content } = action.payload;
             return {
             ...state,
-            [id]: {content}
+            content
             }
         default: 
             return state
