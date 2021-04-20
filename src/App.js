@@ -1,6 +1,5 @@
 import React from 'react';
-import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns} from 'react-bulma-components';
+import { Grid} from '@material-ui/core';
 import Header from './components/Header';
 import CommentList from './components/CommentList';
 import ContactList from './components/ContactList';
@@ -11,12 +10,14 @@ import './App.css';
 function App(){
   return (
     <Provider store={store}>
-      <div className="App">
+      <div>
         <Header/>
-          <Columns>
-            <ContactList/>
-            <CommentList/>
-          </Columns>
+          <div className="content">
+            <Grid container className="chatSection">
+              <ContactList/>
+              <CommentList/>
+            </Grid>
+          </div>
       </div>
     </Provider>
   );

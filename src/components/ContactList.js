@@ -1,6 +1,5 @@
 import React, {useState, useEffect}from 'react';
-import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns, Media, Image, Content} from 'react-bulma-components';
+import {  Grid, List, ListItemIcon, ListItemText, Avatar, Paper } from '@material-ui/core';
 import axios from 'axios';
 import {useStoreContext} from "../context/StoreContext";
 
@@ -42,24 +41,18 @@ export default function ContactList (){
       //  data && data.results.map : data && test si data présente useEffect + async
 
     return(
-        <Columns.Column size={3} className="mtop mleft" id="contactlist">
-            {
-                data && data.results.map((user, index) => 
-                <Media>
-                    <Media.Item renderAs="figure" position="left">
-                        <Image rounded size={64} alt="64x64" src={user.picture.thumbnail}/>
-                    </Media.Item>
-                    <Columns.Column className="is-vcentered">
-                        <Media.Item>
-                            <Content>
-                                <div className="is-size-4">
-                                    <p key={index}>{user.name.first} {user.name.last}</p>
-                                </div>
-                            </Content>
-                        </Media.Item>
-                    </Columns.Column>    
-                </Media>
-            )}
-        </Columns.Column>
+        <Grid item xs={3} className="borderRight500 contactlist" overflow="visible">
+        {
+            data && data.results.map((user, index) => 
+            <List>
+                <ListItemIcon renderAs="figure" position="left">
+                    <Avatar rounded size={64} alt="64x64" src={user.picture.thumbnail}/>
+                </ListItemIcon>
+                <ListItemText key={index} className="contacttext">
+                        {user.name.first} {user.name.last}
+                </ListItemText>
+            </List>        
+        )}
+        </Grid>
     )
 }

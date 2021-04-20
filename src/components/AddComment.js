@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { Heading, Box, Form, Button, Columns} from 'react-bulma-components';
+import { Button, Card, CardHeader, Grid, TextField, Fab } from '@material-ui/core';
+import SendIcon from '@material-ui/icons/Send';
 import {useDispatch} from 'react-redux'
 import {addComment} from '../redux/actions'
 
 export default function AddComment (){
-    const { Input, Field, Control } = Form;
     const [ msg, setMsg] = useState("");
     const dispatch = useDispatch()
     //const [ msgs, setMsgs] = useState([]);
@@ -28,18 +28,13 @@ export default function AddComment (){
     }
 
     return(
-        <Columns.Column className="chat-body-inner">
-            <Box>
-                <Heading className="has-text-info" subtitle size={5}>Envoi ton message!</Heading>
-                <Field className="is-grouped">
-                    <Control className="is-expanded">
-                        <Input className="is-my-input" placeholder="Your comment here" type="text" onChange={handleChange} value={msg}/>
-                    </Control>
-                    <Control>
-                        <Button color="info" onClick={handleClick}>Send</Button>
-                    </Control>
-                </Field> 
-            </Box>
-        </Columns.Column> 
+        <Grid container style={{padding: '20px'}}>
+            <Grid item xs={11}>
+                <TextField id="outlined-basic-email" label="Type Something" onChange={handleChange} value={msg} fullWidth />
+            </Grid>
+            <Grid xs={1} align="right">
+                <Fab color="primary" onClick={handleClick} aria-label="add"><SendIcon /></Fab>
+            </Grid>
+        </Grid>   
     )
 }

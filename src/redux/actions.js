@@ -5,7 +5,8 @@ let nextCommentId = 0;
 export const addComment = content => ({
   type: ADD_COMMENT,
   payload: {
-    id: ++nextCommentId,
-    content: content
+    //id: ++nextCommentId,
+    //content: content
+    content
   }
 });

@@ -1,61 +1,44 @@
 html, body{
     width:100%;
-    overflow-y:hidden;
-    overflow-x:hidden;
+    height:100%;
+    overflow: hidden;
 }
 
 .navbar{
     box-shadow: 0px 2px 2px lightgrey;
 }
 
-.mtop{
-    margin-top: 70px;
+.content{
+    margin-top: 50px;
 }
 
-.mleft{
-    margin-left: 20px;
+.table{
+    min-width: 650;
 }
 
-@media (max-width: 640px) {
-    .contactlist{
-        display:none;
-    }
-
-    .chat-body{
-        position: static;
-    }
-
-    .navbar-brand{
-        display:none;
-    }
+.chatSection{
+    width: 100%;
+    height: 95vh;
 }
 
-@media (min-width: 640px) {
-    .chat-body{
-        position:absolute;
-        bottom:0;
-        right:0;
-        height:100%;
-    }
+.headBG {
+    background-color: #e0e0e0;
 }
 
-.chat-body-inner{
-    position:absolute;
-    width:98%;
-    bottom:30px;
+.borderRight500 {
+    border-right: 1px solid #e0e0e0;
 }
 
-.chat-message{
-    position:absolute;
-    width:98%;
-    bottom:180px;
+.messageArea {
+    height: 75vh;
+    overflow-y: hidden;
 }
 
-#contactlist{
-    position:fixed;
-    width: 24%;
-    height: 90%; 
-    max-height: 90%; 
-    overflow-y: auto;
-    overflow-x: hidden;
+.contacttext{
+    display:inline-flex;
+}
+
+.contactlist{
+    height: 100%;
+    overflow-y: scroll;
 }
